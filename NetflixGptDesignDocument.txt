@@ -1,6 +1,11 @@
+Netflix Gpt
+
 Setup:-
-i) vite build tool:
+i) Vite build tool:
     npm create vite@latest NetflixGpt
     cd NetflixGpt
     npm install
     npm run dev
+ii) TailwindCss library:
+   npm install tailwindcss @tailwindcss/vite    
+   configure vite plugin and import 'tailwind' in your css.
