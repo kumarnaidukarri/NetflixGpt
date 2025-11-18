@@ -1,0 +1,6 @@
+Setup:-
+i) vite build tool:
+    npm create vite@latest NetflixGpt
+    cd NetflixGpt
+    npm install
+    npm run dev
