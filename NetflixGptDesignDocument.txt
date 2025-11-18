@@ -9,3 +9,32 @@ i) Vite build tool:
 ii) TailwindCss library:
    npm install tailwindcss @tailwindcss/vite    
    configure vite plugin and import 'tailwind' in your css.
+
+
+Design :-
+1) Home Page:
+    Signin form, Signup form
+    Redirect to browse page 
+2) Browse Page:
+   Header
+   Main Movie - trailer in background, title, description
+   Movie Suggestions - Movie Lists(horizontal scrolls)
+3) NetflixGpt Page:
+   Search Bar
+   Movie Suggestions
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------
+Shortcuts:
+rafce  - react arrow function component export  
