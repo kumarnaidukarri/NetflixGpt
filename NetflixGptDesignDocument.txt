@@ -11,9 +11,7 @@ ii) TailwindCss library:
    configure vite plugin and import 'tailwind' in your css.
 iii) React-Router library:
      npm i react-router 
-     import { createBrowserRouter } from "react-router";
-     import { RouterProvider } from "react-router/dom";   
-
+     import { createBrowserRouter, RouterProvider } from "react-router";
 
 Design :-
 1) Home Page:
