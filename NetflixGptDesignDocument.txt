@@ -9,6 +9,10 @@ i) Vite build tool:
 ii) TailwindCss library:
    npm install tailwindcss @tailwindcss/vite    
    configure vite plugin and import 'tailwind' in your css.
+iii) React-Router library:
+     npm i react-router 
+     import { createBrowserRouter } from "react-router";
+     import { RouterProvider } from "react-router/dom";   
 
 
 Design :-
