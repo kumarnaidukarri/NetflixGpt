@@ -1,5 +1,8 @@
 import { useState, useRef } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth"; // firebase library
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth"; // firebase library
 import { auth } from "../utils/firebase.js"; // firebase auth instance
 
 import { checkValideData } from "../utils/validate.js";
@@ -46,6 +49,18 @@ const Login = () => {
     }
     if (isSignInForm === true) {
       // 'Signin Logic' from firebase
+      /* */
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          // {accessToken:"",email:"",displayName:"",phoneNumber:null,photoURL:null,providerData:[]}
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - " + errorMessage);
+        });
     }
   };
 
