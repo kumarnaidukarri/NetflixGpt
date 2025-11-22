@@ -12,6 +12,7 @@ ii) TailwindCss library:
 iii) React-Router library:
      npm i react-router 
      import { createBrowserRouter, RouterProvider } from "react-router";
+iv) Firebase library     
 
 Design :-
 1) Home Page:
@@ -27,16 +28,88 @@ Design :-
 
 
 
-concepts:
+Concepts:
 useRef hook, Form Validations using Regex
 
 
+Firebase :-
+Firebase is a google platform which gives services.
+it provides services like Firebase Hosting, Backend Servers, Authentication Login system, Firebase Database, Cloud storage, Cloud functions messaging tools
+  
+1) Firebase Developers Console Setup:-
+ go to firebase.google.com and create an user account.
+ i) create a project app.
+ ii) select 'add app' and 'Web'.
+ Authentication
+ iii) select 'Register app' and 'Firebase Hosting setup'.  
+      follow instructions, copy those "SDK config data".
+      that 'SDK config data' is needed to connect our "React App" to this 'Firebase App Server'.
+      copy paste this 'SDK config data' into our app. (create a firebase.js file with this config data in our local project).
+      next -> next -> done
+ iv) Enable Authentication:
+     build -> authentication -> get started
+     enable required login types: email password, phone, google login, FB login, twitter login etc.
+     Now, the customers whoever uses our React App's Signin or Signup Form.
+     they can be seen in Firebase Users Dashboard.
 
+2) Hosting our Project using Firebase:-  
+   Steps:
+   1) first create/register a project in 'Firebase Developer Console'.
+   2) copy paste the 'SDK config data' into our app. when registering your app in 'Firebase Developer Console' you get this 'SDK config data'. 
+      (create a firebase.js file in our local project and paste this 'SDK config data').
+   3) commands:
+      -> npm install firebase  
+      -> npm install -g firebase-tools
+      -> firebase --version
+      -> firebase login
+         it connects to your Firebase developer account and gives access to projects.
 
+   2 Types of Deploys:-
+     1. Local manually deploy our App to Firebase:- 
+         i)Config setup:
+           it creates "firebase.json" and ".firebaserc" config files in our project after doing below setup steps. 
+           command: 
+            firebase init
+           select options:
+            - Hosting: Set up deployments for static web apps
+            - use an Existing Project (netflixgpt)
+            - public directory:
+              choose folder 'dist'(if Parcel or Vite), 'build'(if CreateReactApp)    
+            - configure as singe-page-app rewrite all urls as index.html: "NO"
+            - setup auto build deploys for GITHUB: "NO"
+         ii)Hosting setup:
+            npm run build    - generates optimized code in a 'dist' or 'build' folder.
+            firebase deploy  - deploys our app and gives deployed live URL.
+                               it uploads project files from 'dist' folder to "Firebase Hosting servers (CDN)".
+            note: when we update our Project code. follow these 2 commands for "Re-Deployment".
 
+     2. Github Actions:-
+         connect github project repo to firebase for auto-deployment.  
 
-
-
+3) Shortcut easy steps to Deploy/Host your app in Firebase :-
+ 1)create a project in 'Firebase Developer Console'. copy and save 'SDK config data' safely.
+ 2)create a 'firebase.js' file in our local project and paste this 'SDK config data' here.
+ 3)commands:
+   -> npm install firebase  
+   -> npm install -g firebase-tools
+   -> firebase --version
+   -> firebase login
+      it connects to your Firebase developer account and gives access to projects.
+ 4)setup configuration in local project.
+   command: 
+    firebase init 
+   select options:
+    -> Hosting: Set up deployments for static web apps
+    -> use an Existing Project (netflixgpt) 
+    -> public directory: folder 'dist' (if Vite)
+    -> configure as singe-page-app rewrite all urls as index.html: "NO"
+    -> setup auto build deploys for GITHUB: "NO"
+   it creates "firebase.json" and ".firebaserc" config files in our project after doing above setup steps.  
+  5)Hosting run:
+    npm run build    - generates optimized code in a 'dist' or 'build' folder.
+    firebase deploy  - deploys our app and gives deployed live URL.
+                       it uploads project files from 'dist' folder to "Firebase Hosting servers (CDN)".
+    note: when we update our Project code. follow these 2 commands for "Re-Deployment".
 
 
 -----------------------------------------
