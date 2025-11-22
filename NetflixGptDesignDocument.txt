@@ -111,6 +111,10 @@ it provides services like Firebase Hosting, Backend Servers, Authentication Logi
                        it uploads project files from 'dist' folder to "Firebase Hosting servers (CDN)".
     note: when we update our Project code. follow these 2 commands for "Re-Deployment".
 
+// Firebase Docs
+/* Read 'Authentication with Firebase', Web(password authentication), 
+Signin and Signup logic implementation 
+*/
 
 -----------------------------------------
 Shortcuts:

@@ -4,6 +4,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+import { getAuth } from "firebase/auth"; // authentication utility function from firebase library
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,6 +24,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+// auth
+const auth = getAuth(); // Firebase Auth instance
+export { auth };
 
 //
 /* Firebase explanation */
@@ -53,3 +59,6 @@ Shortcut easy steps to Deploy/Host your app in Firebase :-
 */
 //
 // deployed live url = https://netflixgpt-6522e.web.app/
+
+// Firebase Docs
+/* Read 'Authentication with Firebase', Web(password authentication), Signin and Signup logic implementation*/

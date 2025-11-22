@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth"; // firebase library
+import { auth } from "../utils/firebase.js"; // firebase auth instance
 
 import { checkValideData } from "../utils/validate.js";
 
@@ -14,13 +16,37 @@ const Login = () => {
 
   const handleButtonClick = () => {
     // Validate the form data
-    const message = checkValideData(
-      emailInputRefObj.current.value,
-      passwordInputRefObj.current.value
-    );
+    const email = emailInputRefObj.current.value;
+    const password = passwordInputRefObj.current.value;
+    const message = checkValideData(email, password);
     setErrorMessage(message); // updates the state
 
-    // SignIn or SignUp flow
+    // if message have some error text.
+    if (message) return;
+
+    // else message is 'null'. i.e, message don't have error text.
+
+    // * Allow Login flow
+    if (isSignInForm === false) {
+      // 'Signup Logic' from firebase
+      /* it sends request to 'Firebase Server' and stores those email and password.
+         we can see them in our 'Firebase Developer Console' Authentication Dashboard 
+      */
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          // {accessToken:"",email:"",displayName:"",phoneNumber:null,photoURL:null,providerData:[]}
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - " + errorMessage);
+        });
+    }
+    if (isSignInForm === true) {
+      // 'Signin Logic' from firebase
+    }
   };
 
   const toggleSignInForm = () => {
