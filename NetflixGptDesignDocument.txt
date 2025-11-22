@@ -1,6 +1,6 @@
 Netflix Gpt
 
-Setup:-
+Setup :-
 i) Vite build tool:
     npm create vite@latest NetflixGpt
     cd NetflixGpt
@@ -13,6 +13,9 @@ iii) React-Router library:
      npm i react-router 
      import { createBrowserRouter, RouterProvider } from "react-router";
 iv) Firebase library     
+v) React-Redux & Redux-toolkit libraries      
+   npm install react-redux @reduxjs/toolkit
+
 
 Design :-
 1) Home Page:
