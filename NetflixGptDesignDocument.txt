@@ -119,6 +119,13 @@ it provides services like Firebase Hosting, Backend Servers, Authentication Logi
 Signin and Signup logic implementation 
 */
 
+// onAuthStateChanged() API from Firebase:
+/*
+  it is a Firebase Authentication 'Event Listener' happens whenever user authentication changes Signin, Signout. 
+  If the user signs in, signs out, or their token refreshes, the callback runs automatically.
+  It is the recommended way to detect auth state.
+*/
+
 -----------------------------------------
 Shortcuts:
 rafce  - react arrow function component export  
