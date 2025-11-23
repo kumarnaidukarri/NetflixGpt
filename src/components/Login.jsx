@@ -1,10 +1,10 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  reload,
 } from "firebase/auth"; // firebase library
 import { auth } from "../utils/firebase.js"; // firebase auth instance
 
@@ -44,24 +44,30 @@ const Login = () => {
          we can see them in our 'Firebase Developer Console' Authentication Dashboard 
       */
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
           const user = userCredential.user;
           console.log(user);
           // {accessToken:"",email:"",displayName:"",phoneNumber:null,photoURL:null,providerData:[]}
 
           // Update user profile
           const name = nameInputRefObj.current.value; // accessing from 'ref'
-          updateProfile(auth.currentUser, {
+          await updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: USER_AVATAR,
-          })
-            .then(() => {
-              // Profile updated!
+          });
+          // Force Firebase to load latest values (IMPORTANT FIX)
+          await reload(user);
+
+          // Manually update Redux
+          const { uid, email, displayName, photoURL } = auth.currentUser;
+          dispatch(
+            addUser({
+              uid,
+              email,
+              displayName,
+              photoURL,
             })
-            .catch((error) => {
-              // An error occurred
-              setErrorMessage(error.message);
-            });
+          ); // Profile updated!
         })
         .catch((error) => {
           const errorCode = error.code;

@@ -130,6 +130,8 @@ Signin and Signup logic implementation
 // App Bugs
 1. user can type path in 'URL bar' and navigate to signin page, browse page, ... even already logged in.
    * Fixed by keeping "Authentication Logic", "Navigation" in "Header" component. since, Header presents in every page and authenticates happens all time.
+2. when user signup and logged in for first time. User_Avatar is not showing in 'header'. since we didn't give async flow and no manual Redux action dispatch.
+   * Fixed by manually calling redux dispatch action, async flow, Force Firebase reload to get latest values.
 
 -----------------------------------------
 Shortcuts:
