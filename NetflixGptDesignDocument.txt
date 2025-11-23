@@ -126,6 +126,11 @@ Signin and Signup logic implementation
   It is the recommended way to detect auth state.
 */
 
+
+// App Bugs
+1. user can type path in 'URL bar' and navigate to signin page, browse page, ... even already logged in.
+   * Fixed by keeping "Authentication Logic", "Navigation" in "Header" component. since, Header presents in every page and authenticates happens all time.
+
 -----------------------------------------
 Shortcuts:
 rafce  - react arrow function component export  

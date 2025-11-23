@@ -58,9 +58,6 @@ const Login = () => {
           })
             .then(() => {
               // Profile updated!
-
-              // navigate to Home route path(sign)
-              navigate("/");
             })
             .catch((error) => {
               // An error occurred
@@ -92,9 +89,6 @@ const Login = () => {
               photoURL: photoURL,
             })
           );
-
-          // navigate to Browse route path
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

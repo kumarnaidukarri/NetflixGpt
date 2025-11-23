@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { auth } from "../utils/firebase.js"; // util func
-import { signOut } from "firebase/auth"; // firebase library
+import { signOut, onAuthStateChanged } from "firebase/auth"; // firebase library
+
+import { addUser, removeUser } from "../utils/Store/userSlice.js"; // actions from slice
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user); // {} or null
 
@@ -24,6 +28,38 @@ const Header = () => {
         // navigate("/error"); // navigate to Error route page
       });
   };
+
+  // runs only on First render.
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in,
+        // see docs for a list of available properties. https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email, displayName, photoURL } = user;
+
+        // Dispatch an Action and updates the store
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+
+        // Navigate to Browse route page
+        navigate("/browse");
+      } else {
+        // User is signed out
+
+        // Dispatch an Action and updates the store
+        dispatch(removeUser());
+
+        // Navigate to Home route page(signin)
+        navigate("/");
+      }
+    });
+  }, []);
 
   return (
     <div className="absolute w-screen z-10 px-8 py-2  bg-gradient-to-bottom from-black  flex justify-between items-center">
