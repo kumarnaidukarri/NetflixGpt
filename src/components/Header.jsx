@@ -31,7 +31,7 @@ const Header = () => {
 
   // runs only on First render.
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribeFn = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in,
         // see docs for a list of available properties. https://firebase.google.com/docs/reference/js/auth.user
@@ -58,6 +58,12 @@ const Header = () => {
         // Navigate to Home route page(signin)
         navigate("/");
       }
+
+      // cleanup fn
+      return () => {
+        // when Component Unmounts, onAuthStateChange Event listener gets removed.
+        unsubscribeFn();
+      };
     });
   }, []);
 
