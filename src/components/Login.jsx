@@ -1,12 +1,15 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth"; // firebase library
 import { auth } from "../utils/firebase.js"; // firebase auth instance
 
 import { checkValideData } from "../utils/validate.js";
+import { addUser } from "../utils/Store/userSlice.js";
 
 // my components
 import Header from "./Header.jsx";
@@ -15,8 +18,10 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate(); // navigate hook
+  const dispatch = useDispatch();
 
   // 'ref objects' to store Input DOM nodes
+  const nameInputRefObj = useRef(null);
   const emailInputRefObj = useRef(null);
   const passwordInputRefObj = useRef(null);
 
@@ -44,8 +49,23 @@ const Login = () => {
           console.log(user);
           // {accessToken:"",email:"",displayName:"",phoneNumber:null,photoURL:null,providerData:[]}
 
-          // navigate to Home route path(sign)
-          navigate("/");
+          // Update user profile
+          const name = nameInputRefObj.current.value; // accessing from 'ref'
+          updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL:
+              "https://cdn-icons-png.flaticon.com/512/10337/10337609.png",
+          })
+            .then(() => {
+              // Profile updated!
+
+              // navigate to Home route path(sign)
+              navigate("/");
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMessage(error.message);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -61,6 +81,17 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           // {accessToken:"",email:"",displayName:"",phoneNumber:null,photoURL:null,providerData:[]}
+
+          // Manually Update Redux Store
+          const { uid, email, displayName, photoURL } = auth.currentUser;
+          dispatch(
+            addUser({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL,
+            })
+          );
 
           // navigate to Browse route path
           navigate("/browse");
@@ -98,6 +129,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+            ref={nameInputRefObj}
             type="text"
             placeholder="Full Name"
             className="my-6 p-4 w-full bg-gray-700"
