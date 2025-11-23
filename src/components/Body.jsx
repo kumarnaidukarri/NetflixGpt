@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, useNavigate } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
@@ -13,7 +13,6 @@ import Login from "./Login.jsx";
 
 const Body = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // navigate hook
 
   const appRouter = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -30,17 +29,11 @@ const Body = () => {
 
         // Dispatch an Action and updates the store
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-
-        // navigate to Browse route path
-        navigate("/browse");
       } else {
         // User is signed out
 
         // Dispatch an Action and updates the store
         dispatch(removeUser());
-
-        // navigate to Home route path
-        navigate("/");
       }
     });
   }, []);

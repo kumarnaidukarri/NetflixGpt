@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,11 +8,13 @@ import { auth } from "../utils/firebase.js"; // firebase auth instance
 
 import { checkValideData } from "../utils/validate.js";
 
+// my components
 import Header from "./Header.jsx";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate(); // navigate hook
 
   // 'ref objects' to store Input DOM nodes
   const emailInputRefObj = useRef(null);
@@ -40,6 +43,9 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           // {accessToken:"",email:"",displayName:"",phoneNumber:null,photoURL:null,providerData:[]}
+
+          // navigate to Home route path(sign)
+          navigate("/");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -55,6 +61,9 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           // {accessToken:"",email:"",displayName:"",phoneNumber:null,photoURL:null,providerData:[]}
+
+          // navigate to Browse route path
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
