@@ -33,7 +33,7 @@ Design :-
 
 Concepts:
 useRef hook, Form Validations using Regex
-
+useNavigate() hook to go to Route Paths
 
 Firebase :-
 Firebase is a google platform which gives services.

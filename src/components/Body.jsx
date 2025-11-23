@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, useNavigate } from "react-router";
 import { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
@@ -13,6 +13,7 @@ import Login from "./Login.jsx";
 
 const Body = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // navigate hook
 
   const appRouter = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -31,6 +32,7 @@ const Body = () => {
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
 
         // navigate to Browse route path
+        navigate("/browse");
       } else {
         // User is signed out
 
@@ -38,6 +40,7 @@ const Body = () => {
         dispatch(removeUser());
 
         // navigate to Home route path
+        navigate("/");
       }
     });
   }, []);
@@ -50,3 +53,6 @@ const Body = () => {
 };
 
 export default Body;
+
+// useNavigate() hook works inside 'RouterProvider' wrapper component.
+// so, navigate() doesn't work for now. i will fix it in next commit.
