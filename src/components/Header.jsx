@@ -6,6 +6,7 @@ import { auth } from "../utils/firebase.js"; // util func
 import { signOut, onAuthStateChanged } from "firebase/auth"; // firebase library
 
 import { addUser, removeUser } from "../utils/Store/userSlice.js"; // actions from slice
+import { LOGO } from "../utils/constants.js";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const Header = () => {
         navigate("/");
       }
 
-      // cleanup fn
+      // Cleanup fn
       return () => {
         // when Component Unmounts, onAuthStateChange Event listener gets removed.
         unsubscribeFn();
@@ -69,11 +70,7 @@ const Header = () => {
 
   return (
     <div className="absolute w-screen z-10 px-8 py-2  bg-gradient-to-bottom from-black  flex justify-between items-center">
-      <img
-        className="w-44"
-        alt="netflix logo"
-        src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2025-08-26/consent/87b6a5c0-0104-4e96-a291-092c11350111/0198e689-25fa-7d64-bb49-0f7e75f898d2/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-      />
+      <img className="w-44" alt="netflix logo" src={LOGO} />
       {user && (
         <div className="flex gap-2  p-2">
           <img alt="user-icon" className="w-12 h-12" src={user?.photoURL} />

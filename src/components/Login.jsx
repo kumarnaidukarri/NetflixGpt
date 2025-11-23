@@ -10,6 +10,7 @@ import { auth } from "../utils/firebase.js"; // firebase auth instance
 
 import { checkValideData } from "../utils/validate.js";
 import { addUser } from "../utils/Store/userSlice.js";
+import { USER_AVATAR } from "../utils/constants.js";
 
 // my components
 import Header from "./Header.jsx";
@@ -17,7 +18,6 @@ import Header from "./Header.jsx";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate(); // navigate hook
   const dispatch = useDispatch();
 
   // 'ref objects' to store Input DOM nodes
@@ -53,8 +53,7 @@ const Login = () => {
           const name = nameInputRefObj.current.value; // accessing from 'ref'
           updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL:
-              "https://cdn-icons-png.flaticon.com/512/10337/10337609.png",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
