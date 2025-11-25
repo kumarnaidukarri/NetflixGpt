@@ -34,6 +34,7 @@ Design :-
 Concepts:
 useRef hook, Form Validations using Regex
 useNavigate() hook to go to Route Paths
+custom hook (useNowPlayingMovies) to fetch moviesList data and update redux store
 
 Firebase :-
 Firebase is a google platform which gives services.

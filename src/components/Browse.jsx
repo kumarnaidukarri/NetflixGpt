@@ -1,28 +1,8 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-
 import Header from "./Header.jsx";
-import { WatchModeAPI__URL } from "../utils/constants.js";
-import { addNowPlayingMovies } from "../utils/Store/moviesSlice.js"; // redux actions
+import useNowPlayingMovies from "../customHooks/useNowPlayingMovies.js"; // custom hook
 
 const Browse = () => {
-  const dispatch = useDispatch();
-
-  const getNowPlayingMovies = async () => {
-    const responseObj = await fetch(WatchModeAPI__URL);
-    const jsonData = await responseObj.json();
-    // console.log(jsonData);
-
-    const moviesReleasesList = jsonData?.releases; // [m1{},m2{},m3{},m4{},...]
-    console.log(moviesReleasesList);
-
-    // Dispatching an Action to redux store
-    dispatch(addNowPlayingMovies(moviesReleasesList));
-  };
-
-  useEffect(() => {
-    getNowPlayingMovies(); // API call for movies list
-  }, []);
+  useNowPlayingMovies(); // custom hook will fetch the 'moviesList' data from API and Updates the redux store
 
   return (
     <div>
