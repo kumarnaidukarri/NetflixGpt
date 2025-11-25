@@ -1,4 +1,7 @@
 import Header from "./Header.jsx";
+import MainContainer from "./MainContainer.jsx";
+import SecondaryContainer from "./SecondaryContainer.jsx";
+
 import useNowPlayingMovies from "../customHooks/useNowPlayingMovies.js"; // custom hook
 
 const Browse = () => {
@@ -7,8 +10,21 @@ const Browse = () => {
   return (
     <div>
       <Header />
+      <MainContainer />
+      <SecondaryContainer />
     </div>
   );
 };
 
 export default Browse;
+
+/* 
+Browse Page
+
+  Main Container
+    - video background
+    - video title
+  Secondary Container
+    - Movie List * n
+         - (movie cards * n)  
+*/
