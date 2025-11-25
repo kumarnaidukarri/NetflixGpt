@@ -16,4 +16,77 @@ TV shows API providers:- TVMaze(https://api.tvmaze.com/shows)
 const WatchModeAPI__KEY = "KmUpfDsCw8ErfxvazuB5fpv6pksFInhIy6feFfCQ";
 const WatchModeAPI__URL = `https://api.watchmode.com/v1/releases/?apiKey=${WatchModeAPI__KEY}`; // resObj.releases=[mobj1,mobj2]
 
-export { LOGO, USER_AVATAR, WatchModeAPI__URL };
+// 2. KINOCHECK API - movie videos, trailers, info
+/*
+Example Request:-
+ fetch(URL, {method:'GET',headers:{'Content-Type':'application/json','Accept':'application/json','X-Api-Key':apiKey,'X-Api-Host':'api.kinocheck.com'}})
+ accept parameters: id, tmdb_id, imdb_id, language, categories(Trailer,Teaser,Clip,Featurette), limit, page
+*/
+/*
+Example Output :-
+ {
+	"id": "ly4",
+	"tmdb_id": 299534,
+	"imdb_id": "tt4154796",
+	"language": "de",
+	"title": "Avengers 4: Endgame",
+	"url": "https://kinocheck.de/film/ly4/avengers-4-2019",
+	"trailer": [video resource],
+	"videos": [[video resource]]
+ } 
+
+--------------
+Example video resource: 
+ {
+	"id": "4ghv",
+	"youtube_video_id": "EJJedP2_7_k",
+	"youtube_channel_id": "UCOL10n-as9dXO2qtjjFUQbQ",
+	"youtube_thumbnail": "https://img.youtube.com/vi/EJJedP2_7_k/maxresdefault.jpg",
+	"title": "AVENGERS 4: Endgame Trailer German Deutsch (2019)",
+	"url": "https://kinocheck.de/trailer/7zxh/avengers-4-...",
+	"thumbnail": "https://images.kinocheck.de/images/hsd2ascncd.jpg",
+	"language": "de",
+	"categories": [
+		"Trailer"
+	],
+	"published": "2018-12-07T13:16:51+01:00",
+	"views": "1391790",
+  "resource": ["type" => "movie" "path" => "/movies/" "id" => "ly4" "imdb_id" => "tt4154796" "tmdb_id" => 299534]
+ }
+*/
+
+/*
+Example URLs
+GET https://api.kinocheck.com/movies?tmdb_id=299534
+GET https://api.kinocheck.com/movies?tmdb_id=299534&language=de
+GET https://api.kinocheck.com/movies?tmdb_id=299534&language=de&categories=Trailer
+GET https://api.kinocheck.com/movies?tmdb_id=299534&language=de&categories=Trailer,-Clip
+
+GET https://api.kinocheck.com/trailers
+GET https://api.kinocheck.com/trailers/trending
+GET https://api.kinocheck.com/trailers/latest
+*/
+
+const KINOCHECKAPI__KEY =
+  "CPnGn49bVg85joSEFEFdV0sGDzOJQS4tuXDviA2sb1gXqHKTWWIHwBl6epcCh5za";
+const KINOCHECKAPI__HeaderOptions = {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "X-Api-Key": KINOCHECKAPI__KEY,
+    "X-Api-Host": "api.kinocheck.com",
+  },
+};
+const CorsProxyUrlFix = "https://proxy.corsfix.com/?";
+const KINOCHECKAPI__MoviesURL =
+  CorsProxyUrlFix + "https://api.kinocheck.com/movies?tmdb_id="; // fetch( url+tmdbid, headerOptions )
+//
+
+export {
+  LOGO,
+  USER_AVATAR,
+  WatchModeAPI__URL,
+  KINOCHECKAPI__MoviesURL,
+  KINOCHECKAPI__HeaderOptions,
+};
