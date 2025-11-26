@@ -7,9 +7,7 @@ import VideoBackground from "./VideoBackground.jsx";
 import VideoTitle from "./VideoTitle.jsx";
 
 const MainContainer = () => {
-  const movies = useSelector(
-    (appStore) => appStore.movies?.addNowPlayingMovies
-  ); // Subscribe to Redux store
+  const movies = useSelector((appStore) => appStore.movies?.nowPlayingMovies); // Subscribe to Redux store
   if (movies === null) return;
 
   const mainMovie = movies[0];
