@@ -15,7 +15,7 @@ const usePopularMovies = () => {
     // console.log(jsonData);
 
     const moviesReleasesList = jsonData?.releases; // [m1{},m2{},m3{},m4{},...]
-    console.log(moviesReleasesList);
+    // console.log(moviesReleasesList);
 
     // Popular movies
     const popularMovies = moviesReleasesList.filter(

@@ -15,7 +15,7 @@ const useCategoryMovies = () => {
     // console.log(jsonData);
 
     const moviesReleasesList = jsonData?.releases; // [m1{},m2{},m3{},m4{},...]
-    console.log(moviesReleasesList);
+    // console.log(moviesReleasesList);
 
     // type Movies
     const movies = moviesReleasesList.filter(
