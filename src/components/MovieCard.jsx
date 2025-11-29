@@ -1,0 +1,16 @@
+// Movie Card component for horizontal scroll list
+
+const MovieCard = ({ posterUrl }) => {
+  // if there is no poster image url. skip it.
+  if (posterUrl === "" || posterUrl === undefined || posterUrl === null) {
+    return null;
+  }
+
+  return (
+    <div className="movie-card  w-48 pr-5">
+      <img src={posterUrl} alt="movie card" />
+    </div>
+  );
+};
+
+export default MovieCard;
