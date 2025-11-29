@@ -139,11 +139,23 @@ Signin and Signup logic implementation
 2. when user signup and logged in for first time. User_Avatar is not showing in 'header'. since we didn't give async flow and no manual Redux action dispatch.
    * Fixed by manually calling redux dispatch action, async flow, Force Firebase reload to get latest values.
 
-
 WatchMode API  - movies API, movies list, title, ...
 
-
 -----------------------------------------
+
+*****
+GPT :-
+ 'GPT' is product build by "OpenAI" company. 
+ 'Chatgpt' is a frontend product which uses "GPT APIs".
+
+
+
+
+
+
+
+
+--------------------------------------
 
 Shortcuts:
 rafce  - react arrow function component export  
