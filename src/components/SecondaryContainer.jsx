@@ -11,10 +11,7 @@ const SecondaryContainer = () => {
     <div className=" bg-black">
       <div className="-mt-30 pl-12 relative z-10">
         <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Trending"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Popular"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Horror"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Upcoming"} movies={movies.nowPlayingMovies} />
+        <MovieList title={"Popular"} movies={movies.popularMovies} />
       </div>
 
       {/* 
@@ -29,3 +26,7 @@ const SecondaryContainer = () => {
 };
 
 export default SecondaryContainer;
+
+// ["Now Playing", "Trending", "Popular", "Horror", "Upcoming"]
+// Movie categories types -
+// ["movie", "tv_series", "tv_miniseries", "tv_special", "short_film", "tv_movie"];
