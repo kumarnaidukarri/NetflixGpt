@@ -5,13 +5,16 @@ import { useSelector } from "react-redux";
 import MovieList from "./MovieList.jsx";
 
 const SecondaryContainer = () => {
-  const movies = useSelector((appStore) => appStore.movies); // Subscribe to Movie slice of redux store
+  const moviesReduxState = useSelector((appStore) => appStore.movies); // Subscribe to Movie slice of redux store
 
   return (
     <div className=" bg-black">
       <div className="-mt-30 pl-12 relative z-10">
-        <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
-        <MovieList title={"Popular"} movies={movies.popularMovies} />
+        <MovieList
+          title={"Now Playing"}
+          movies={moviesReduxState.nowPlayingMovies}
+        />
+        <MovieList title={"Movies"} movies={moviesReduxState.movies} />
       </div>
 
       {/* 

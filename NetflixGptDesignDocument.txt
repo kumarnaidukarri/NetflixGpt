@@ -36,6 +36,10 @@ useRef hook, Form Validations using Regex
 useNavigate() hook to go to Route Paths
 custom hook (useNowPlayingMovies) to fetch moviesList data and update redux store
 custom hook (usePopularMovies) to fetch moviesList data, filter popular, add it to redux store.
+custom hooks -
+  useCategoryMovies, useCategoryTvSeries, useCategoryTvMiniseries, useCategoryTvSpecials, useCategoryShortFilms, useCategoryTvMovies
+  ex: ["movie", "tv_series", "tv_miniseries", "tv_special", "short_film", "tv_movie"]; 
+
 
 Firebase :-
 Firebase is a google platform which gives services.
