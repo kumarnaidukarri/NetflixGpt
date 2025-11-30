@@ -46,7 +46,7 @@ Multi-Language support using Internationalization.
  - select box with options(supported languages) 
  - create languageSlice in redux to store language data.
     subscribe to the languageSlice, when its state(lang key) changes. then, component data also updates.
-
+ - Display language selectbox only in GPT search page.   
 
 Firebase :-
 Firebase is a google platform which gives services.

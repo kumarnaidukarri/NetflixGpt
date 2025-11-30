@@ -88,20 +88,26 @@ const Header = () => {
       {user && (
         <div className="flex gap-2  p-2">
           {/* select box with supported languages options */}
-
-          <select
-            className="p-2 m-2 text-white bg-gray-900"
-            onClick={handleLanguageChange}
-          >
-            {SUPPORTED_LANGUAGES.map((language) => {
-              return (
-                <option value={language.identifier} key={language.identifier}>
-                  {language.name}
-                </option>
-              );
-            })}
-          </select>
-
+          {
+            // Display language selectbox only in GptSearch Page.
+            showGptSearch === true && (
+              <select
+                className="p-2 m-2 text-white bg-gray-900"
+                onClick={handleLanguageChange}
+              >
+                {SUPPORTED_LANGUAGES.map((language) => {
+                  return (
+                    <option
+                      value={language.identifier}
+                      key={language.identifier}
+                    >
+                      {language.name}
+                    </option>
+                  );
+                })}
+              </select>
+            )
+          }
           <button
             className="search-button  px-4 py-2 mx-2 text-white bg-purple-800 rounded-lg cursor-pointer hover:bg-purple-700"
             onClick={handleGptSearchClick}
