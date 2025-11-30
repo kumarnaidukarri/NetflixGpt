@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
+
 import Header from "./Header.jsx";
 import MainContainer from "./MainContainer.jsx";
 import SecondaryContainer from "./SecondaryContainer.jsx";
+import GptSearch from "./GptSearch.jsx";
 
 // Custom Hooks
 import useNowPlayingMovies from "../customHooks/useNowPlayingMovies.js";
@@ -10,6 +13,8 @@ import useCategoryTvSpecials from "../customHooks/useCategoryTvSpecials.js";
 import useCategoryShortFilms from "../customHooks/useCategoryShortFilms.js";
 
 const Browse = () => {
+  const showGptSearch = useSelector((appStore) => appStore.gpt.showGptSearch); // Subscribes to Gpt slice of redux store
+
   useNowPlayingMovies(); // custom hook will fetch the 'moviesList' data from API and Updates the redux store
   useCategoryMovies(); // custom hook will fetch the 'moviesList' data  from API, filters based on type 'movie', Updates the redux store
   useCategoryTvSeries(); // custom hook will fetch the 'moviesList' data  from API, filters based on type 'tv_series', Updates the redux store
@@ -18,9 +23,16 @@ const Browse = () => {
 
   return (
     <div>
-      <Header />
-      <MainContainer />
-      <SecondaryContainer />
+      {/* <Header /> */}
+      {/* show/hide GPT component based on the 'gpt state' in redux store. */}
+      {showGptSearch === true ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };
