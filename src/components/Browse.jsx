@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Header from "./Header.jsx";
 import MainContainer from "./MainContainer.jsx";
 import SecondaryContainer from "./SecondaryContainer.jsx";
-import GptSearch from "./GptSearch.jsx";
+import GptSearchPage from "./GptSearchPage.jsx";
 
 // Custom Hooks
 import useNowPlayingMovies from "../customHooks/useNowPlayingMovies.js";
@@ -23,10 +23,10 @@ const Browse = () => {
 
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       {/* show/hide GPT component based on the 'gpt state' in redux store. */}
       {showGptSearch === true ? (
-        <GptSearch />
+        <GptSearchPage />
       ) : (
         <>
           <MainContainer />
