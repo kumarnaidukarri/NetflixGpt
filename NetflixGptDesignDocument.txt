@@ -41,6 +41,8 @@ custom hooks -
   useCategoryMovies, useCategoryTvSeries, useCategoryTvMiniseries, useCategoryTvSpecials, useCategoryShortFilms, useCategoryTvMovies
   ex: ["movie", "tv_series", "tv_miniseries", "tv_special", "short_film", "tv_movie"]; 
 
+Multi-Language support using Internationalization.
+ - a js file with normal JS object stores Multi language data.
 
 Firebase :-
 Firebase is a google platform which gives services.
