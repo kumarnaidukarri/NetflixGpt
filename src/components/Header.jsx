@@ -8,7 +8,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth"; // firebase library
 import { addUser, removeUser } from "../utils/Store/userSlice.js"; // actions from slice
 import { toggleGptSearchView } from "../utils/Store/GptSlice.js";
 
-import { LOGO } from "../utils/constants.js";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants.js";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -36,6 +36,10 @@ const Header = () => {
   const handleGptSearchClick = () => {
     // toggle Gpt Search button  show/hide
     dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (event) => {
+    console.log(event.target.value);
   };
 
   // runs only on First render.
@@ -81,6 +85,19 @@ const Header = () => {
       <img className="w-44" alt="netflix logo" src={LOGO} />
       {user && (
         <div className="flex gap-2  p-2">
+          {/* select box with supported languages options */}
+
+          <select
+            className="p-2 m-2 text-white bg-gray-900"
+            onClick={handleLanguageChange}
+          >
+            {SUPPORTED_LANGUAGES.map((language) => {
+              return (
+                <option value={language.identifier}> {language.name} </option>
+              );
+            })}
+          </select>
+
           <button
             className="search-button  px-4 py-2 mx-2 text-white bg-purple-800 rounded-lg cursor-pointer hover:bg-purple-700"
             onClick={handleGptSearchClick}

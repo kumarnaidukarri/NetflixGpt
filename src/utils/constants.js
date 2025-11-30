@@ -86,6 +86,14 @@ const KINOCHECKAPI__MoviesURL =
   CorsProxyUrlFix + "https://api.kinocheck.com/movies?tmdb_id="; // fetch( url+tmdbid, headerOptions )
 //
 
+// Languages
+const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "telugu", name: "Telugu" },
+  { identifier: "spanish", name: "Spanish" },
+];
+
 export {
   LOGO,
   USER_AVATAR,
@@ -93,4 +101,5 @@ export {
   WatchModeAPI__URL,
   KINOCHECKAPI__MoviesURL,
   KINOCHECKAPI__HeaderOptions,
+  SUPPORTED_LANGUAGES,
 };
