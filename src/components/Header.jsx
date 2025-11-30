@@ -7,6 +7,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth"; // firebase library
 
 import { addUser, removeUser } from "../utils/Store/userSlice.js"; // actions from slice
 import { toggleGptSearchView } from "../utils/Store/GptSlice.js";
+import { changeLanguage } from "../utils/Store/languageSlice.js";
 
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants.js";
 
@@ -39,7 +40,8 @@ const Header = () => {
   };
 
   const handleLanguageChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    dispatch(changeLanguage(event.target.value)); // dispatch an action, updates the redux store.
   };
 
   // runs only on First render.
