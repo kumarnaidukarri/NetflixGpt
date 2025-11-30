@@ -94,6 +94,10 @@ const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
+// OpenAI API key
+const OpenAi_Key =
+  "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";
+
 export {
   LOGO,
   USER_AVATAR,
@@ -102,4 +106,5 @@ export {
   KINOCHECKAPI__MoviesURL,
   KINOCHECKAPI__HeaderOptions,
   SUPPORTED_LANGUAGES,
+  OpenAi_Key,
 };
