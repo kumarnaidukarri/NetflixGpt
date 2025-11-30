@@ -52,7 +52,7 @@ Multi-Language support using Internationalization.
 
 OpenAI integration
  - useRef to reference the 'Search Inputbox' dom element.
-
+ - search button : handles OpenAi api calls, get movie recommendations data.
  
 
 Firebase :-
@@ -177,12 +177,11 @@ Open AI :-
     const client = new OpenAI({
       apiKey: process.env['OPENAI_API_KEY'],
     });
-    const response = await client.responses.create({
-      model: 'gpt-4o',
-      input: 'Are semicolons optional in JavaScript?',
+    const gptResults = await client.chat.completions.create({
+      model: "gpt-4o",
+      messages: [{ role: "user", content: "Give me 5 adventure movie recommendations names seperated by comma" }],
     });
-    console.log(response.output_text);  
-
+    console.log(gptResults?.choices?.[0]?.messages?.content);
 
 
 
