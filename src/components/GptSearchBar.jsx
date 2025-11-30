@@ -1,20 +1,33 @@
 // Gpt search bar component
 
+import { useRef } from "react";
 import { useSelector } from "react-redux";
 import lang from "../utils/languageConstants.js";
 
 const GptSearchBar = () => {
   const languageKey = useSelector((store) => store.language.lang); // Subscribes to language slice of redux store.
 
+  const searchTextRef = useRef(null); // ref for getting reference to Search Inputbox dom element
+  const handleGptSearchClick = () => {
+    console.log(searchTextRef.current.value);
+  };
+
   return (
     <div className="Gpt-Searchbar  pt-[7.5%]  flex justify-center">
-      <form className="w-1/2 bg-black  grid grid-cols-12">
+      <form
+        className="w-1/2 bg-black  grid grid-cols-12"
+        onSubmit={(event) => event.preventDefault()}
+      >
         <input
+          ref={searchTextRef}
           type="text"
           placeholder={lang[languageKey].gptSearchPlaceholder}
           className="m-4 p-4 bg-white rounded-sm  col-span-9"
         />
-        <button className="px-4 py-2 m-4 text-white bg-red-700 rounded-lg cursor-pointer hover:bg-red-600  col-span-3">
+        <button
+          className="px-4 py-2 m-4 text-white bg-red-700 rounded-lg cursor-pointer hover:bg-red-600  col-span-3"
+          onClick={handleGptSearchClick}
+        >
           {lang[languageKey].search}
         </button>
       </form>

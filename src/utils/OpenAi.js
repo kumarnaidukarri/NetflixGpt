@@ -1,15 +1,19 @@
 import OpenAI from "openai";
+import { OpenAi_Key } from "./constants.js"; // openai my API key
 
-const client = new OpenAI({
-  apiKey: process.env["OPENAI_API_KEY"], // This is the default and can be omitted
+const openai = new OpenAI({
+  apiKey: OpenAi_Key,
 });
 
-const response = await client.responses.create({
-  model: "gpt-4o",
-  input: "Are semicolons optional in JavaScript?",
-});
+export default openai;
 
-console.log(response.output_text);
+/* const response = await client.responses.create({
+   model: "gpt-4o",
+   input: "Are semicolons optional in JavaScript?",
+ });
+
+ console.log(response.output_text);
+*/
 
 // OpenAI SDK library
 /*

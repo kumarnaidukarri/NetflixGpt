@@ -50,6 +50,11 @@ Multi-Language support using Internationalization.
     subscribe to the languageSlice, when its state(lang key) changes. then, component data also updates.
  - Display language selectbox only in GPT search page.   
 
+OpenAI integration
+ - useRef to reference the 'Search Inputbox' dom element.
+
+ 
+
 Firebase :-
 Firebase is a google platform which gives services.
 it provides services like Firebase Hosting, Backend Servers, Authentication Login system, Firebase Database, Cloud storage, Cloud functions messaging tools
