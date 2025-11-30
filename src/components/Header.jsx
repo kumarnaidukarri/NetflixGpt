@@ -14,6 +14,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user); // {} or null
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch); // true or false
 
   // it returns current logged in user object.  i.e, {} or null
   // const currentUser = auth.currentUser;
@@ -84,7 +85,7 @@ const Header = () => {
             className="search-button  px-4 py-2 mx-2 text-white bg-purple-800 rounded-lg cursor-pointer hover:bg-purple-700"
             onClick={handleGptSearchClick}
           >
-            GPT Search
+            {!showGptSearch ? "GPT Search" : "Home page"}
           </button>
           <img alt="user-icon" className="w-12 h-12" src={user?.photoURL} />
           <button

@@ -5,6 +5,9 @@ const LOGO =
 
 const USER_AVATAR = "https://cdn-icons-png.flaticon.com/512/10337/10337609.png";
 
+const Netflix_BG_URL =
+  "https://assets.nflxext.com/ffe/siteui/vlv3/e94073b0-a056-402f-9015-16cb1e7e45c2/web/IN-en-20251110-TRIFECTA-perspective_46e74acc-70aa-4691-988a-dbcf958149d1_small.jpg";
+
 //
 // !!! Strugging to get Free Movies APIs. !!!
 /* 
@@ -86,6 +89,7 @@ const KINOCHECKAPI__MoviesURL =
 export {
   LOGO,
   USER_AVATAR,
+  Netflix_BG_URL,
   WatchModeAPI__URL,
   KINOCHECKAPI__MoviesURL,
   KINOCHECKAPI__HeaderOptions,
