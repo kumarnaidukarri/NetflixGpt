@@ -44,6 +44,7 @@ custom hooks -
 Multi-Language support using Internationalization.
  - a js file with normal JS object stores Multi language data.
  - select box with options(supported languages) 
+ - create languageSlice in redux to store language data.
 
 Firebase :-
 Firebase is a google platform which gives services.
