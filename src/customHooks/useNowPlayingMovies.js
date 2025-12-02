@@ -4,7 +4,14 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { WatchModeAPI__URL } from "../utils/constants.js";
-import { addNowPlayingMovies } from "../utils/Store/moviesSlice.js"; // redux actions
+import {
+  addNowPlayingMovies,
+  addPopularMovies,
+  addMovies,
+  addTvSeries,
+  addTvSpecials,
+  addShortFilms,
+} from "../utils/Store/moviesSlice.js"; // redux actions
 
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
@@ -17,8 +24,34 @@ const useNowPlayingMovies = () => {
     const moviesReleasesList = jsonData?.releases; // [m1{},m2{},m3{},m4{},...]
     // console.log(moviesReleasesList);
 
-    // Dispatching an Action to redux store
+    // Dispatching  Actions to redux store
     dispatch(addNowPlayingMovies(moviesReleasesList));
+
+    dispatch(addPopularMovies(moviesReleasesList));
+
+    dispatch(
+      addMovies(
+        moviesReleasesList.filter((movieObj) => movieObj.type === "movie")
+      )
+    );
+
+    dispatch(
+      addTvSeries(
+        moviesReleasesList.filter((movieObj) => movieObj.type === "tv_series")
+      )
+    );
+
+    dispatch(
+      addTvSpecials(
+        moviesReleasesList.filter((movieObj) => movieObj.type === "tv_special")
+      )
+    );
+
+    dispatch(
+      addShortFilms(
+        moviesReleasesList.filter((movieObj) => movieObj.type === "short_film")
+      )
+    );
   };
 
   useEffect(() => {

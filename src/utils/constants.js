@@ -16,7 +16,7 @@ TV shows API providers:- TVMaze(https://api.tvmaze.com/shows)
 */
 // TMDB movie api website not working.
 // 1. WATCHMODE API
-const WatchModeAPI__KEY = "KmUpfDsCw8ErfxvazuB5fpv6pksFInhIy6feFfCQ";
+const WatchModeAPI__KEY = "JfP7FNy8YYeH1cK97yPDgEA4FBrSzKNdCevB0GHj";
 const WatchModeAPI__URL = `https://api.watchmode.com/v1/releases/?apiKey=${WatchModeAPI__KEY}`; // resObj.releases=[mobj1,mobj2]
 
 // 2. KINOCHECK API - movie videos, trailers, info
