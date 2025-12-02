@@ -53,6 +53,7 @@ Multi-Language support using Internationalization.
 OpenAI integration
  - useRef to reference the 'Search Inputbox' dom element.
  - search button : handles OpenAi api calls, get movie recommendations data.
+   currently, no OpenAI plan subscription no api calls. using Dummy movies names data as search data.     
  
 
 Firebase :-

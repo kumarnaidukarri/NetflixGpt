@@ -18,6 +18,7 @@ TV shows API providers:- TVMaze(https://api.tvmaze.com/shows)
 // 1. WATCHMODE API
 const WatchModeAPI__KEY = "JfP7FNy8YYeH1cK97yPDgEA4FBrSzKNdCevB0GHj";
 const WatchModeAPI__URL = `https://api.watchmode.com/v1/releases/?apiKey=${WatchModeAPI__KEY}`; // resObj.releases=[mobj1,mobj2]
+const WatchModeAPISearchByName__URL = `https://api.watchmode.com/v1/search/?apiKey=${WatchModeAPI__KEY}&search_field=${"name"}&search_value=`;
 
 // 2. KINOCHECK API - movie videos, trailers, info
 /*
@@ -103,6 +104,7 @@ export {
   USER_AVATAR,
   Netflix_BG_URL,
   WatchModeAPI__URL,
+  WatchModeAPISearchByName__URL,
   KINOCHECKAPI__MoviesURL,
   KINOCHECKAPI__HeaderOptions,
   SUPPORTED_LANGUAGES,
