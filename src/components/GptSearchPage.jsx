@@ -8,7 +8,7 @@ const GptSearchPage = () => {
   return (
     <div className="gpt-search-page">
       {/* background image */}
-      <div className="bg-container absolute -z-10">
+      <div className="bg-container  fixed -z-10">
         <img
           alt="netflix background image"
           src={Netflix_BG_URL}
