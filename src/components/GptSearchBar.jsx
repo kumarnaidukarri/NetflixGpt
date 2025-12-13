@@ -24,6 +24,11 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () => {
     console.log(searchTextRef.current.value);
+
+    if (searchTextRef.current.value === "") {
+      return null;
+    }
+
     const gptQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
       searchTextRef.current.value +
@@ -43,6 +48,7 @@ const GptSearchBar = () => {
     */
 
     const exampleGptMoviesNamesArray = [
+      searchTextRef.current.value,
       "Dunkirk",
       "Spider-man",
       "Life of Pi",
