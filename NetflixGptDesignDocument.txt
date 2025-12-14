@@ -202,5 +202,30 @@ using "If Else" conditioning, we make API calls or Fetching data only if data is
 
 --------------------------------------
 
+Responsive Design in Tailwindcss :-
+  Tailwind uses "Mobile-First Approach" breakpoint system.
+  'unprefixed utility classes' applies to 'All screen sizes'.
+  'prefixed utility class' version works on 'specified breakpoint' and 'above'.
+  note:
+   -> Don't use sm: to target mobile devices.
+   -> ** Use 'unprefixed utilities' to target mobile, and override them at larger breakpoints.
+
+  Breakpoints:
+        -  0-all            i.e, without prefix applies to all. 
+   sm   -  640px(min-w)     i.e, starts applying from 640px and above
+   md   -  768px
+   lg   -  1024px
+   xl   -  1280px
+   2xl  -  1536px	  	 
+   
+   syntax: bp:className 
+   ex: <h1 className = "bg-black  sm:bg-red-500  md:bg-green-500  lg:bg-blue-500  xl:bg-yellow-500  2xl:bg-pink-500">  Hello World </h1>
+   explanation:
+       bg-black works in all devices. 
+       but, when 640px arrives "sm" will overide the default bg.
+       but, when 768px arrives "md" will overide the sm:bg.    
+       so on ...    
+
+
 Shortcuts:
 rafce  - react arrow function component export  
