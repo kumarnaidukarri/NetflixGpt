@@ -115,12 +115,13 @@ const Login = () => {
         <img
           alt="netflix background image"
           src={Netflix_BG_URL}
-          className="h-screen w-screen"
+          className="h-screen w-screen object-cover"
         />
       </div>
 
       <form
-        className="signin-form  absolute left-0 right-0  mx-auto p-12 my-36 w-3/12 bg-black text-white rounded-lg opacity-90"
+        className="signin-form  absolute left-0 right-0  mx-auto p-12 my-36 bg-black text-white rounded-lg opacity-90
+        w-full md:w-5/12"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="font-bold text-3xl py-4">
