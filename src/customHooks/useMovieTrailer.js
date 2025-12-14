@@ -1,7 +1,7 @@
 // Custom hook to fetch 'Movie Trailer Video' data and Updates the Redux Store.
 
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTrailerVideo } from "../utils/Store/moviesSlice.js"; // redux action
 
 import {
@@ -12,6 +12,10 @@ import {
 const useMovieTrailer = (tmdbId) => {
   const dispatch = useDispatch();
   /* const [watchId, setWatchId] = useState(null); */ // state variable to store 'Youtube Watch Id'
+
+  const trailerVideo = useSelector(
+    (appStoreState) => appStoreState.movies.trailerVideo
+  ); // subscribes to portion of Movie slice from redux store
 
   useEffect(() => {
     // fetch the 'trailer video' data and Update the Redux Store
@@ -39,7 +43,11 @@ const useMovieTrailer = (tmdbId) => {
       // Dispatching an action will updates the store.
       dispatch(addTrailerVideo({ watchKey, youtubeWatchLink }));
     };
-    getMovieTrailer();
+
+    // *** Conditional Caching technique - will execute only if no data is present.
+    if (!trailerVideo) {
+      getMovieTrailer();
+    }
   }, []); // runs only on initial first render
 };
 

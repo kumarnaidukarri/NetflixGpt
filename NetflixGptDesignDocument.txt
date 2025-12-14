@@ -196,6 +196,10 @@ ENV file :-
    we shouldn't push the "ENV file" to remote repo. because, hackers will misuse our secret keys if leaked.
    * way of accessing, naming of ENV Variables changes based on build tool (or) deployment platform. 
 
+Conditional Caching :-
+using "If Else" conditioning, we make API calls or Fetching data only if data is not present in Redux Store.
+
+
 --------------------------------------
 
 Shortcuts:

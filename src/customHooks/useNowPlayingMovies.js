@@ -1,7 +1,7 @@
 // Custom hook will fetch data(moviesArr) from "Watch Mode API" and updates the store.
 
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { WatchModeAPI__URL } from "../utils/constants.js";
 import {
@@ -15,6 +15,10 @@ import {
 
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
+
+  const nowPlayingMovies = useSelector(
+    (appStoreState) => appStoreState.movies.nowPlayingMovies
+  ); // subscribes to portion of Movie slice from redux store
 
   const getNowPlayingMovies = async () => {
     const responseObj = await fetch(WatchModeAPI__URL);
@@ -55,7 +59,10 @@ const useNowPlayingMovies = () => {
   };
 
   useEffect(() => {
-    getNowPlayingMovies(); // API call for movies list
+    // *** Conditional Caching technique - will execute only if no data is present.
+    if (!nowPlayingMovies) {
+      getNowPlayingMovies(); // API call for movies list
+    }
   }, []);
 };
 
