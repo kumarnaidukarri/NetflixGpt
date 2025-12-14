@@ -83,8 +83,13 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute w-screen z-10 px-8 py-2  bg-gradient-to-bottom from-black  flex justify-between items-center  bg-black sm:bg-red-500  md:bg-green-500  lg:bg-blue-500  xl:bg-yellow-500  2xl:bg-pink-500">
-      <img className="w-44" alt="netflix logo" src={LOGO} />
+    <div
+      className="absolute w-screen z-10 px-8 py-2  bg-gradient-to-bottom from-black 
+     bg-black sm:bg-red-500  md:bg-green-500  lg:bg-blue-500  xl:bg-yellow-500  2xl:bg-pink-500
+     flex flex-col justify-center 
+     md:flex-row md:justify-between"
+    >
+      <img className="w-44  mx-auto md:mx-0" alt="netflix logo" src={LOGO} />
       {user && (
         <div className="flex gap-2  p-2">
           {/* select box with supported languages options */}
