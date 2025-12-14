@@ -43,7 +43,7 @@ const MainContainer = () => {
     overview = "This is the overview of the movie ...",
   } = klausObj;
   return (
-    <div>
+    <div className="main-container  bg-black pt-[30%] md:pt-0">
       <VideoTitle title={title} overview={overview} />
       <VideoBackground tmdbId={tmdb_id} />
     </div>

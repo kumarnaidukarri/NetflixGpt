@@ -7,7 +7,7 @@ const MovieCard = ({ posterUrl }) => {
     return (
       <div className="movie-card  w-36 md:w-48 pr-5">
         <img
-          src={"https://placehold.co/150x225?text=Movie Card Image"}
+          src={"https://placehold.co/150x250?text=No Image for Movie Card"}
           alt="movie card"
           className="mb-5"
         />
