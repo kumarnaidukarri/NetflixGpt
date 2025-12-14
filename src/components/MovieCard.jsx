@@ -5,7 +5,7 @@ const MovieCard = ({ posterUrl }) => {
   if (posterUrl === "" || posterUrl === undefined || posterUrl === null) {
     // return null;
     return (
-      <div className="movie-card  w-48 pr-5">
+      <div className="movie-card  w-36 md:w-48 pr-5">
         <img
           src={"https://placehold.co/150x225?text=Movie Card Image"}
           alt="movie card"
