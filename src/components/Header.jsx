@@ -91,7 +91,7 @@ const Header = () => {
     >
       <img className="w-44  mx-auto md:mx-0" alt="netflix logo" src={LOGO} />
       {user && (
-        <div className="flex gap-2  p-2">
+        <div className="flex gap-2  p-2 justify-between items-center">
           {/* select box with supported languages options */}
           {
             // Display language selectbox only in GptSearch Page.
@@ -114,14 +114,18 @@ const Header = () => {
             )
           }
           <button
-            className="search-button  px-4 py-2 mx-2 text-white bg-purple-800 rounded-lg cursor-pointer hover:bg-purple-700"
+            className="search-button  px-4 py-3 mx-2 text-white bg-purple-800 rounded-lg cursor-pointer hover:bg-purple-700"
             onClick={handleGptSearchClick}
           >
             {!showGptSearch ? "GPT Search" : "Home page"}
           </button>
-          <img alt="user-icon" className="w-12 h-12" src={user?.photoURL} />
+          <img
+            alt="user-icon"
+            className="w-12 h-12  hidden md:inline-block"
+            src={user?.photoURL}
+          />
           <button
-            className="font-bold px-4 py-2 cursor-pointer rounded-sm bg-red-400 hover:bg-red-500 hover:text-white"
+            className="font-bold px-4 py-3 cursor-pointer rounded-sm bg-red-400 hover:bg-red-500 hover:text-white"
             onClick={handleSignOut}
           >
             Signout
