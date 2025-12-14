@@ -185,8 +185,16 @@ Open AI :-
     console.log(gptResults?.choices?.[0]?.messages?.content);
 
 
-
-
+ENV file :-
+ ENV file contains Passwords, API Keys, Database credentials, Secrets. 
+ create a '.env' file and store secret data in it. Add its path in '.gitignore' file.   
+ syntax:-
+   keyname = value.       "key name" must start with "VITE_".  ex: VITE_urlkey = value 
+   "import.meta.env.keyname". Accessing env variables in our code. ex: import.meta.env.VITE_urlkey 
+ note:- 
+   we shouldn't store our keys, secrets directly in our code. instead use .env file
+   we shouldn't push the "ENV file" to remote repo. because, hackers will misuse our secret keys if leaked.
+   * way of accessing, naming of ENV Variables changes based on build tool (or) deployment platform. 
 
 --------------------------------------
 
