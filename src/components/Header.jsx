@@ -85,7 +85,7 @@ const Header = () => {
   return (
     <div
       className="absolute w-screen z-10 px-8 py-2  bg-gradient-to-bottom from-black 
-    sm:bg-red-500  md:bg-green-500  lg:bg-blue-500  xl:bg-yellow-500  2xl:bg-pink-500
+     bg-transparent
      flex flex-col justify-center 
      md:flex-row md:justify-between"
     >
